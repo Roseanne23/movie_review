@@ -3,3 +3,9 @@
 <p>Released on: <%= @movie.date_released %></p>
 <p>Country of Origin: <%= @movie.country_of_origin %></p>
 <p>Showing from: <%= @movie.showing_start %> to <%= @movie.showing_end %></p>
+<p>Movie Genres:</p>
+<ul>
+  <% @movie.genres.each do |genre| %>
+    <li><%= genre.name %></li>
+  <% end %>
+</ul>
