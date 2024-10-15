@@ -2,3 +2,21 @@
 <p>Welcome Movie Critics!</p>
 <%= link_to 'Sign Up', new_user_path %>
 <%= link_to 'Sign In', new_session_path %>
+<%= link_to 'Add Movie', new_movie_path %>
+
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<h2>Movies</h2>
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <%= link_to movie.title, movie_path(movie) %>
+      <p><%= movie.blurb %></p>
+      <p>Released on: <%= movie.date_released %></p>
+      <p>Country of Origin: <%= movie.country_of_origin %></p>
+      <p>Showing from: <%= movie.showing_start %> to <%= movie.showing_end %></p>
+    </li>
+  <% end %>
+</ul>
